@@ -4,7 +4,7 @@
 
 It turns infrastructure knowledge into a portable atlas: systems, services, networks, integrations, operational outcomes and direct relationships. The inventory stays as plain JSON, the CLI validates and renders it, and the visual viewer makes it explorable with React Flow and ELK layout.
 
-Atlasys is built by [wizhelp](https://github.com/wizhelp-net) for teams that want infrastructure maps agents can actually reason over, without leaking private topology into a SaaS product.
+Atlasys is built by [wizhelp](https://wizhelp.me) for teams that want infrastructure maps agents can actually reason over, without leaking private topology into a SaaS product.
 
 ## What Atlasys is
 
