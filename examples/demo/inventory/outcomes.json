@@ -1,0 +1,4 @@
+[
+  {"id":"support-operations","name":"Support operations","description":"Operators inspect requests, devices and knowledge from one cockpit.","systems":["operator-portal","backend-api","ticket-system","device-rmm","knowledge-base","support-agent"]},
+  {"id":"runtime-hosting","name":"Runtime hosting","description":"Application host, reverse proxy and private network keep the portal reachable.","systems":["app-host","reverse-proxy","backend-api","private-network"]}
+]

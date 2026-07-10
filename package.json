@@ -1,0 +1,51 @@
+{
+  "name": "ops-atlas",
+  "version": "0.1.0",
+  "description": "Agent-operable system cartography CLI and React Flow viewer",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "atlas": "./bin/atlas.mjs"
+  },
+  "scripts": {
+    "check": "node ./bin/atlas.mjs validate --project examples/demo",
+    "render": "node ./bin/atlas.mjs render --project examples/demo",
+    "viewer:dev": "vite --config viewer/vite.config.ts --host 127.0.0.1",
+    "viewer:build": "vite build --config viewer/vite.config.ts",
+    "build": "npm run viewer:build && npm run render",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "ops",
+    "atlas",
+    "system-map",
+    "infrastructure",
+    "mermaid",
+    "react-flow",
+    "elk",
+    "agents",
+    "cartography"
+  ],
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "@xyflow/react": "latest",
+    "elkjs": "latest",
+    "vite": "latest",
+    "typescript": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "@types/react-dom": "latest"
+  },
+  "files": [
+    "bin",
+    "templates",
+    "docs",
+    "viewer/dist",
+    "README.md",
+    "AGENT.md",
+    "LICENSE"
+  ]
+}

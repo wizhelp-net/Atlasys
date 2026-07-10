@@ -1,0 +1,11 @@
+[
+  {"id":"operator-portal","name":"Operator Portal","type":"web-service","host":"app-host","url":"https://portal.example.com","role":"Human-facing support and operations cockpit","status":"active","tags":["portal","support","web"]},
+  {"id":"app-host","name":"Application Host","type":"host","role":"Runs the operator portal and backend API","status":"active","tags":["linux","runtime"]},
+  {"id":"backend-api","name":"Backend API","type":"service","host":"app-host","bind":"127.0.0.1:8080","role":"Serves runtime status, inventory and workflow APIs","status":"active","tags":["api","backend"]},
+  {"id":"reverse-proxy","name":"Reverse Proxy","type":"service","host":"app-host","role":"Terminates TLS and routes public traffic to internal services","status":"active","tags":["tls","routing"]},
+  {"id":"ticket-system","name":"Ticket System","type":"external-integration","role":"External tickets and customer requests","status":"external","tags":["tickets","external"]},
+  {"id":"device-rmm","name":"Device RMM","type":"external-integration","role":"Device inventory and remote diagnostics","status":"external","tags":["devices","rmm"]},
+  {"id":"knowledge-base","name":"Knowledge Base","type":"content-corpus","role":"Playbooks and known issues used by operators and agents","status":"active","tags":["knowledge","playbooks"]},
+  {"id":"support-agent","name":"Support Agent","type":"agent","host":"app-host","role":"Agent that reasons over tickets, devices and knowledge context","status":"active","tags":["agent","support"]},
+  {"id":"private-network","name":"Private Network","type":"network","cidr":"10.0.0.0/24","role":"Internal service network for app and data flows","status":"active","tags":["network","private"]}
+]

@@ -1,0 +1,6 @@
+[
+  {"id":"outcomes","title":"Outcomes","type":"outcomes"},
+  {"id":"runtime","title":"Runtime","type":"systems","includeTypes":["host","service","web-service","agent","content-corpus"]},
+  {"id":"integrations","title":"Integrations","type":"systems","includeTypes":["service","web-service","external-integration","content-corpus","agent"]},
+  {"id":"all","title":"Full demo map","type":"systems"}
+]

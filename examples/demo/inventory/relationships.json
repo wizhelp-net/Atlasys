@@ -1,0 +1,12 @@
+[
+  {"from":"operator-portal","to":"reverse-proxy","label":"served_by"},
+  {"from":"reverse-proxy","to":"backend-api","label":"reverse_proxies_to"},
+  {"from":"backend-api","to":"app-host","label":"runs_on"},
+  {"from":"operator-portal","to":"backend-api","label":"queries"},
+  {"from":"backend-api","to":"ticket-system","label":"queries_tickets"},
+  {"from":"backend-api","to":"device-rmm","label":"queries_devices"},
+  {"from":"support-agent","to":"backend-api","label":"calls_api"},
+  {"from":"support-agent","to":"knowledge-base","label":"reads_context"},
+  {"from":"app-host","to":"private-network","label":"connected_to"},
+  {"from":"backend-api","to":"knowledge-base","label":"serves_content"}
+]
