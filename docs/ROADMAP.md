@@ -1,8 +1,8 @@
-# Ops Atlas roadmap
+# Atlasys roadmap
 
-Ops Atlas is a standalone, portable system cartography product for agents and operators.
+Atlasys is a standalone, portable system cartography product for operators and agents.
 
-## V1
+## V0.1
 
 - portable CLI
 - generic `AGENT.md`
@@ -11,16 +11,23 @@ Ops Atlas is a standalone, portable system cartography product for agents and op
 - Mermaid export
 - React Flow + ELK visual viewer
 - draggable nodes with browser-local layout persistence
-- search, outcome filters, direct relation inspection
+- search, outcome filters and direct relation inspection
 
-## V2
+## V0.2 candidates
 
-- read-only scanner suggestions for systemd, Docker, Proxmox, Kubernetes and reverse proxies
 - layout export/import
 - SVG/PNG export
-- diff and drift reports
+- richer validation warnings for shallow nodes and weak graphs
+- edge styling by relationship type
+- better keyboard accessibility
+- package publishing to npm once project ownership is ready
+
+## V0.3 candidates
+
+- read-only scanner suggestions for systemd, Docker, Proxmox, Kubernetes and reverse proxies
+- inventory diff and drift reports
 - richer risk/blast-radius views
-- package publishing and signed releases
+- optional schema export for editor autocomplete
 
 ## Principle
 

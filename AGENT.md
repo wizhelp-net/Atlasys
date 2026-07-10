@@ -1,6 +1,6 @@
-# AGENT.md · Ops Atlas operating guide
+# AGENT.md · Atlasys operating guide
 
-You are using Ops Atlas, a read-only system cartography toolkit for operators and AI agents.
+You are using **Atlasys**, a read-only system cartography toolkit for operators and AI agents.
 
 Your goal is to create a useful map of an environment without changing that environment and without leaking private information.
 
@@ -16,7 +16,7 @@ Focus on:
 - entrypoints and ownership
 - risks, sensitive boundaries and blast radius
 
-The CLI is your support tool. You, the agent, do the discovery and judgment. Ops Atlas gives you a schema, validation, Mermaid export and a React Flow + ELK visual canvas.
+The CLI is your support tool. You, the agent, do the discovery and judgment. Atlasys gives you a schema-light project structure, validation, Mermaid export and a React Flow + ELK visual canvas.
 
 ## Hard rules
 
@@ -27,7 +27,7 @@ The CLI is your support tool. You, the agent, do the discovery and judgment. Ops
 - Keep the inventory portable and platform-agnostic.
 - Generated files can be regenerated; inventory files and this guide are durable.
 - Prefer redacted paths, roles and service names over sensitive contents.
-- If publishing the atlas, sanitize it first.
+- If publishing an atlas, sanitize it first.
 
 ## Standard workflow
 
@@ -35,12 +35,14 @@ The CLI is your support tool. You, the agent, do the discovery and judgment. Ops
 2. Identify the main operational outcomes.
 3. Inspect available local/project context using read-only commands.
 4. Add or update inventory files.
-5. Run `atlas validate`.
-6. Run `atlas render`.
-7. Open `generated/viewer/index.html` or run `atlas serve`.
+5. Run `atlasys validate`.
+6. Run `atlasys render`.
+7. Open `generated/viewer/index.html` or run `atlasys serve`.
 8. Inspect the graph visually.
 9. Add missing direct relationships.
 10. Re-render until the map explains the environment clearly.
+
+`atlas` is available as a short alias for `atlasys`.
 
 ## What to map
 
@@ -108,7 +110,7 @@ Use read-only inspection where available:
 - systemd: running services, unit files, timers, ports
 - Docker: compose projects, containers, exposed ports
 - Kubernetes: namespaces, deployments, services, ingresses
-- Proxmox/virtualization: VMs, CTs, storage, bridges, status
+- virtualization: VMs, CTs, storage, bridges, status
 - reverse proxies: Caddy, Nginx, Traefik routes
 - app repos: README, package files, env examples, service files
 - CI/CD: workflow files and deployment scripts

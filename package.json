@@ -1,10 +1,19 @@
 {
-  "name": "ops-atlas",
+  "name": "atlasys",
   "version": "0.1.0",
-  "description": "Agent-operable system cartography CLI and React Flow viewer",
+  "description": "Open-source system cartography for operators and AI agents",
   "type": "module",
   "license": "MIT",
+  "homepage": "https://github.com/wizhelp-net/ops-atlas#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizhelp-net/ops-atlas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wizhelp-net/ops-atlas/issues"
+  },
   "bin": {
+    "atlasys": "./bin/atlas.mjs",
     "atlas": "./bin/atlas.mjs"
   },
   "scripts": {
@@ -16,6 +25,7 @@
     "prepack": "npm run build"
   },
   "keywords": [
+    "atlasys",
     "ops",
     "atlas",
     "system-map",
@@ -24,7 +34,8 @@
     "react-flow",
     "elk",
     "agents",
-    "cartography"
+    "cartography",
+    "topology"
   ],
   "dependencies": {
     "@vitejs/plugin-react": "latest",
@@ -39,6 +50,9 @@
     "@types/react": "latest",
     "@types/react-dom": "latest"
   },
+  "engines": {
+    "node": ">=20"
+  },
   "files": [
     "bin",
     "templates",
@@ -46,6 +60,8 @@
     "viewer/dist",
     "README.md",
     "AGENT.md",
-    "LICENSE"
+    "LICENSE",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
   ]
 }

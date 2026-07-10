@@ -138,7 +138,7 @@ function render(project) {
   console.log(JSON.stringify({ ok: true, out, systems: data.systems.length, outcomes: data.outcomes.length, relationships: data.relationships.length }, null, 2))
 }
 function markdown(data, views) {
-  const lines = [`# ${data.meta.name || 'Ops Atlas Map'}`, '', `Generated: ${new Date().toISOString()}`, '', '## Outcomes', '']
+  const lines = [`# ${data.meta.name || 'Atlasys Map'}`, '', `Generated: ${new Date().toISOString()}`, '', '## Outcomes', '']
   for (const o of data.outcomes) lines.push(`- **${o.name}**: ${o.description || ''}`)
   lines.push('', '## Mermaid diagrams', '')
   for (const v of views) lines.push(`- \`${v.id}\`: \`generated/diagrams/${v.id}.mmd\``)
@@ -160,11 +160,11 @@ function serve(project) {
     const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml' }
     res.writeHead(200, { 'Content-Type': types[ext] || 'application/octet-stream' })
     fs.createReadStream(file).pipe(res)
-  }).listen(port, '127.0.0.1', () => console.log(`Ops Atlas viewer: http://127.0.0.1:${port}`))
+  }).listen(port, '127.0.0.1', () => console.log(`Atlasys viewer: http://127.0.0.1:${port}`))
 }
 try {
   if (cmd === 'init') {
-    const dest = path.resolve(args[1] || 'ops-atlas-project')
+    const dest = path.resolve(args[1] || 'atlasys-project')
     copyDir(path.join(root, 'templates/project'), dest)
     fs.copyFileSync(path.join(root, 'AGENT.md'), path.join(dest, 'AGENT.md'))
     console.log(`created ${dest}`)
@@ -175,7 +175,7 @@ try {
   } else if (cmd === 'render') render(projectDir())
   else if (cmd === 'serve') serve(projectDir())
   else {
-    console.log('Usage: atlas init <dir> | validate --project <dir> | render --project <dir> | serve --project <dir> [--port 8787]')
+    console.log('Usage: atlasys init <dir> | validate --project <dir> | render --project <dir> | serve --project <dir> [--port 8787]')
     process.exit(cmd ? 2 : 0)
   }
 } catch (e) {
