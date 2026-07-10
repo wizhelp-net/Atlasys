@@ -70,7 +70,7 @@ From GitHub:
 
 ```bash
 git clone https://github.com/wizhelp-net/Atlasys.git
-cd ops-atlas
+cd Atlasys
 npm install
 npm run build
 node bin/atlas.mjs serve --project examples/demo
