@@ -69,7 +69,7 @@ Atlasys gives agents and developers a grounded structure:
 From GitHub:
 
 ```bash
-git clone https://github.com/wizhelp-net/ops-atlas.git
+git clone https://github.com/wizhelp-net/Atlasys.git
 cd ops-atlas
 npm install
 npm run build

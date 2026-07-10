@@ -4,13 +4,13 @@
   "description": "Open-source system cartography for operators and AI agents",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://github.com/wizhelp-net/ops-atlas#readme",
+  "homepage": "https://github.com/wizhelp-net/Atlasys#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wizhelp-net/ops-atlas.git"
+    "url": "git+https://github.com/wizhelp-net/Atlasys.git"
   },
   "bugs": {
-    "url": "https://github.com/wizhelp-net/ops-atlas/issues"
+    "url": "https://github.com/wizhelp-net/Atlasys/issues"
   },
   "bin": {
     "atlasys": "./bin/atlas.mjs",
