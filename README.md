@@ -6,6 +6,14 @@ It turns infrastructure knowledge into a portable atlas: systems, services, netw
 
 Atlasys is built by [wizhelp](https://wizhelp.me) for teams that want infrastructure maps agents can actually reason over, without leaking private topology into a SaaS product.
 
+![Atlasys concept](docs/assets/atlasys-concept.png)
+
+## Preview
+
+![Atlasys demo screenshot](docs/assets/atlasys-demo-screenshot.png)
+
+The preview uses the sanitized demo project included in this repository. It does not contain private infrastructure data.
+
 ## What Atlasys is
 
 Atlasys is:
