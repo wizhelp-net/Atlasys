@@ -1,52 +1,65 @@
 # AGENT.md · Ops Atlas operating guide
 
-You are using Ops Atlas, a read-only system cartography CLI and visual mapper.
+You are using Ops Atlas, a read-only system cartography toolkit for operators and AI agents.
+
+Your goal is to create a useful map of an environment without changing that environment and without leaking private information.
 
 ## Mission
 
-Create a complete, useful system map for the environment you are assisting. Focus on outcomes first, then systems, dependencies, networks and risks.
+Create a complete, practical system atlas for the environment you are assisting.
 
-The CLI is your support tool. You, the agent, do the reasoning and discovery. Ops Atlas gives you a schema, validation, Mermaid export and a professional React Flow/ELK visual canvas.
+Focus on:
+
+- operational outcomes
+- systems that support those outcomes
+- direct relationships between systems
+- entrypoints and ownership
+- risks, sensitive boundaries and blast radius
+
+The CLI is your support tool. You, the agent, do the discovery and judgment. Ops Atlas gives you a schema, validation, Mermaid export and a React Flow + ELK visual canvas.
 
 ## Hard rules
 
 - Do not change infrastructure.
+- Do not run destructive commands.
 - Do not include secrets, tokens, private keys, auth headers or raw private logs.
 - Treat scanner/manual output as suggestions until reviewed.
 - Keep the inventory portable and platform-agnostic.
-- Generated files can be regenerated; inventory and this guide are durable.
-- Prefer redacted paths/roles over sensitive contents.
+- Generated files can be regenerated; inventory files and this guide are durable.
+- Prefer redacted paths, roles and service names over sensitive contents.
+- If publishing the atlas, sanitize it first.
 
-## Workflow
+## Standard workflow
 
 1. Read this guide.
 2. Identify the main operational outcomes.
-3. Inspect the local project/system structure using read-only commands.
+3. Inspect available local/project context using read-only commands.
 4. Add or update inventory files.
 5. Run `atlas validate`.
 6. Run `atlas render`.
 7. Open `generated/viewer/index.html` or run `atlas serve`.
-8. Inspect the graph visually: missing lines usually mean missing relationships.
-9. Add direct relationships until every important dependency is represented.
-10. Re-render.
+8. Inspect the graph visually.
+9. Add missing direct relationships.
+10. Re-render until the map explains the environment clearly.
 
 ## What to map
 
 Map anything that affects an operational outcome:
 
 - hosts, VMs, containers and appliances
-- services and jobs
+- services, daemons and jobs
 - public/private entrypoints
 - reverse proxies and routes
 - networks, VLANs, bridges and private backbones
 - APIs and integrations
 - data stores and content corpora
 - agents, skills and automation runtimes
-- auth files/config files, only as sensitive nodes, never contents
+- auth/config files as sensitive nodes, never with contents
+- scheduled tasks and workflow runners
 - known risks and blast-radius constraints
 - future/stopped capacity if it changes operational decisions
 
-## Required fields for good nodes
+## Good node fields
 
 Every important system should try to include:
 
@@ -58,13 +71,13 @@ Every important system should try to include:
 - `status`: active, stopped, configured, external, planned
 - `url` or `bind`: if it exposes an entrypoint
 - `path` or `service`: if it is locally operated
-- `owner`: person/team/system if known
-- `risk`: if dangerous/sensitive
+- `owner`: person, team or system if known
+- `risk`: if dangerous, sensitive or high blast-radius
 - `tags`: short searchable labels
 
-## Required relationship style
+## Relationship style
 
-Relationships are the most important part of the map. Add direct edges for every meaningful dependency.
+Relationships are the most important part of the map. Add a direct edge for every meaningful dependency.
 
 Good labels:
 
@@ -72,32 +85,36 @@ Good labels:
 - `served_by`
 - `reverse_proxies_to`
 - `queries`
-- `calls_gateway_rpc`
+- `calls_api`
 - `authenticates_with`
 - `persists_state_to`
 - `reads_from`
 - `writes_to`
 - `protects`
 - `monitors`
+- `triggers`
+- `publishes_to`
+- `subscribes_to`
 - `clone_of`
 - `standby_on`
 - `future_supports`
 
 Avoid vague labels like `related_to` unless there is no better option.
 
-## Discovery checklist
+## Read-only discovery checklist
 
 Use read-only inspection where available:
 
-- systemd: running services, unit files, ports
-- Proxmox: VMs, CTs, storage, bridges, status
+- systemd: running services, unit files, timers, ports
 - Docker: compose projects, containers, exposed ports
 - Kubernetes: namespaces, deployments, services, ingresses
-- reverse proxies: Caddy/Nginx/Traefik routes
-- app repos: README, env examples, package files, service files
+- Proxmox/virtualization: VMs, CTs, storage, bridges, status
+- reverse proxies: Caddy, Nginx, Traefik routes
+- app repos: README, package files, env examples, service files
+- CI/CD: workflow files and deployment scripts
+- scheduled jobs: cron, systemd timers, workflow tools
+- agent runtimes: skills, helper scripts, API clients, operational guides
 - logs only for service names and flow clues, not raw private content
-- agent skills/tools: helper scripts, API clients, operational guides
-- scheduled jobs: cron/systemd timers/workflow tools
 
 ## Completeness checklist
 
@@ -112,7 +129,7 @@ Before calling a map complete, check:
 - every risky/sensitive system has a risk note
 - every visible node has at least one meaningful direct relation unless intentionally isolated
 - Mermaid and React Flow viewer render without errors
-- no secrets are present
+- no secrets or private raw logs are present
 
 ## Visual review loop
 
@@ -122,6 +139,6 @@ If the graph looks sparse:
 2. inspect Direct relations
 3. ask: what uses this, what does it use, where does it run, what protects it, what state does it read/write?
 4. add missing relationships
-5. rerender
+5. re-render
 
-The goal is not a pretty poster. The goal is a map an agent can use to make safer operational decisions.
+The goal is not a pretty poster. The goal is a map an agent or operator can use to make safer operational decisions.
