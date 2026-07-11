@@ -59,7 +59,6 @@ Map anything that affects an operational outcome:
 - auth/config files as sensitive nodes, never with contents
 - scheduled tasks and workflow runners
 - known risks and blast-radius constraints
-- future/stopped capacity if it changes operational decisions
 
 ## Good node fields
 
@@ -70,7 +69,7 @@ Every important system should try to include:
 - `type`: host, service, web-service, vm, lxc, container, network, external-integration, agent, job, automation, data-store, content-corpus
 - `host`: where it runs, if applicable
 - `role`: why it exists, outcome-first
-- `status`: active, stopped, configured, external, planned
+- `status`: active, stopped, configured or external
 - `url` or `bind`: if it exposes an entrypoint
 - `path` or `service`: if it is locally operated
 - `owner`: person, team or system if known
@@ -99,7 +98,6 @@ Good labels:
 - `subscribes_to`
 - `clone_of`
 - `standby_on`
-- `future_supports`
 
 Avoid vague labels like `related_to` unless there is no better option.
 
